@@ -29,9 +29,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
- */
 public class CustomScannerActivity extends Activity implements
         DecoratedBarcodeView.TorchListener {
 
@@ -43,7 +40,6 @@ public class CustomScannerActivity extends Activity implements
         @Override
         public void barcodeResult(BarcodeResult result) {
             if (result.getText() == null) {
-                // Prevent duplicate scans
                 return;
             }
           Intent data = new Intent();
@@ -52,7 +48,6 @@ public class CustomScannerActivity extends Activity implements
            finish();
 
 
-            //Added preview of scanned barcode
         }
 
         @Override
@@ -73,9 +68,7 @@ public class CustomScannerActivity extends Activity implements
 
         viewfinderView = (ViewfinderView) findViewById(R.id.zxing_viewfinder_view);
 
-        // if the device does not have flashlight in its camera,
-        // then remove the switch flashlight button...
-        if (!hasFlash()) {
+       if (!hasFlash()) {
             switchFlashlightButton.setVisibility(View.GONE);
         }
         Collection<BarcodeFormat> formats = Collections.singletonList(BarcodeFormat.QR_CODE);
@@ -108,10 +101,6 @@ public class CustomScannerActivity extends Activity implements
         return barcodeScannerView.onKeyDown(keyCode, event) || super.onKeyDown(keyCode, event);
     }
 
-    /**
-     * Check if the device's camera has a Flashlight.
-     * @return true if there is Flashlight, otherwise false.
-     */
     private boolean hasFlash() {
         return getApplicationContext().getPackageManager()
                 .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);

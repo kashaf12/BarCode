@@ -76,7 +76,7 @@ public class QrCodeScannerActivity extends AppCompatActivity{
         text_speech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                t1.speak(data_speech, TextToSpeech.QUEUE_FLUSH, null,TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID);
+                t1.speak(wlcm.getText(), TextToSpeech.QUEUE_FLUSH, null,TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID);
             }
         });
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -201,6 +201,7 @@ public class QrCodeScannerActivity extends AppCompatActivity{
             public void onClick(View v) {
                 EditText verificationCode  = dialog.findViewById(R.id.verification_code);
                 text = verificationCode.getText().toString();
+                wlcm.setText(text);
                 if(!text.trim().isEmpty()){
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try {
@@ -223,7 +224,7 @@ public class QrCodeScannerActivity extends AppCompatActivity{
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
             data_speech = data.getStringExtra("Result");
-            wlcm.setText("Result = "+ data.getStringExtra("Result"));
+            wlcm.setText(data.getStringExtra("Result"));
         }
     }
     private void saveImageToExternalStorage(Bitmap finalBitmap,String title) {
@@ -244,9 +245,6 @@ public class QrCodeScannerActivity extends AppCompatActivity{
             e.printStackTrace();
         }
 
-
-        // Tell the media scanner about the new file so that it is
-        // immediately available to the user.
         MediaScannerConnection.scanFile(this, new String[]{file.toString()}, null,
                 new MediaScannerConnection.OnScanCompletedListener() {
                     public void onScanCompleted(String path, Uri uri) {

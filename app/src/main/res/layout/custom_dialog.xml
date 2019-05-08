@@ -29,7 +29,7 @@
             android:focusedByDefault="true"
             android:textSize="20sp"
 
-             />
+            android:importantForAutofill="no" />
     </android.support.design.widget.TextInputLayout>
 
         <Button
@@ -43,10 +43,10 @@
             android:background="@color/primary_darker"
             android:layout_gravity="center"
             android:textColor="@color/accent"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:layout_marginBottom="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             />
 
 </LinearLayout>
