@@ -11,7 +11,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
-    android:text="Enter a text you want to convert to QR code"
+    android:text="Enter a text you want to convert to QR code."
     android:textColor="@color/accent"
     android:textSize="18sp"/>
     <android.support.design.widget.TextInputLayout
