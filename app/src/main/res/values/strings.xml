@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">QR code Scanner</string>
+
+    <string name="hello_world">This Project is made for Summer Internships of Tactopus By Kashaf Ahmed </string>
+    <string name="scan_bar_code">Scan a QR Code</string>
+    <string name="generate_bar_code">Generate a QR code</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="turn_on_flashlight">turn on flashlight</string>
+    <string name="turn_off_flashlight">turn off flashlight</string>
+
+</resources>
